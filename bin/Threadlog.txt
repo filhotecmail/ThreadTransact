@@ -1,12 +1,12 @@
  --------------------- LOG DE TRANSAÇÕES ------------------------- 
     APLICAÇÃO  C:\ThreadTransact\bin\ThreadTransact.exe
-28082022:102145Conectado com o serviço de banco de dados 
-28082022:102145Conexão com banco de dados aberta!
-28082022:102145Preparando para iniciar a transação dos dados 
-28082022:102145Iniciando transação
-28082022:102145Preparando para efetuar commit do banco de dados
-28082022:102145Transação fechada com sucesso!
-28082022:102145Nao existem dados a serem atualizados!
-28082022:102145 | EXCEPTION | Nao existem dados a serem atualizados!
-28082022:102145Thread Liberada dos processos!
+28082022:105226 > Conectado com o serviço de banco de dados 
+28082022:105226 > Conexão com banco de dados aberta!
+28082022:105226 > Preparando para iniciar a transação dos dados 
+28082022:105226 > Iniciando transação
+28082022:105226 > Preparando para efetuar commit do banco de dados
+28082022:105226 > Transação fechada com sucesso!
+28082022:105226 > Nao existem dados a serem atualizados!
+28082022:105226 >  | EXCEPTION | Nao existem dados a serem atualizados!
+28082022:105226 > Thread Liberada dos processos!
  ---------------------------------------------------- 
