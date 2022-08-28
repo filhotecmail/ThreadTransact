@@ -212,6 +212,13 @@ begin
 end;
  
  ```
+ 
+ ##Exemplo de Log
+ 
+ Se você não preencher as propriedades de LogPatch e LogFileName , o sistema automaticamente irá criar o arquivo de log na pasta da aplicação.
+ 
+ ![image](https://user-images.githubusercontent.com/18727307/187077137-99f56bc0-1158-450a-b533-c012d41f6b9a.png)
+
 
 
 
