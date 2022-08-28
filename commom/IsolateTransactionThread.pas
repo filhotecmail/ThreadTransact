@@ -553,7 +553,8 @@ begin
     
   end;
 
-  FLogTransaction.Add( LDate + LMessage )
+  FLogTransaction.Add( LDate + ' > ' + LMessage );
+  
 end;
 
 function TTransactionData.WriteLog( PLogLine: Exception ): TTransactionData;
