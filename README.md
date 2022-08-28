@@ -171,6 +171,47 @@ begin
 end;
  
  ```
+ 
+ ### Dentro do método Execute você pode verificar como está sendo executado e fazer todas as validações possíveis que deseja
+ 
+ ```Delphi
+ 
+ 
+procedure TTransactionData.Execute;
+begin
+  inherited;
+
+   While True do
+    begin
+    
+     Sleep(100);  
+
+     if FLogFilePatch.Trim.IsEmpty then
+        FLogFilePatch:= ExtractFilePath(ParamStr(0));
+
+     if FLogFilename.Trim.IsEmpty then
+        FLogFilename := 'Threadlog.txt';   
+    try 
+    
+     ValidaDadosBancodeDados
+       .MontaConexao
+        .DoTransactStatements; 
+        
+    except
+    
+     on E: Exception do
+     begin
+        WriteLog(E);
+        Abort;
+     end;
+     
+    end;
+        
+   end;
+   
+end;
+ 
+ ```
 
 
 
