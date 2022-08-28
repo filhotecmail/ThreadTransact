@@ -106,6 +106,72 @@ end;
 
 ```
 
+##Como trabalhar.
+ Você vai trabalhar dentro do método DoTransactStatements, criando sua logica; 
+ 
+ ```Delphi
+ 
+function TTransactionData.DoTransactStatements: TTransactionData;
+var
+  I: Integer;
+begin
+ Result := Self;
+
+  FTransactionStr := 'SELECT * FROM CADCLIENTES C WHERE CHAR_LENGTH(TRIM(C.USUARIO)) <= 0';
+  FTransactValues := ['ADMINISTRADOR'];
+ 
+ if FCon.Connected then
+    FCon.CloneConnection;
+    
+ FTransact.StartTransaction;
+ 
+ Assert( not FTransactionStr.Trim.IsEmpty , 'Não existe um SQL Montando de Update ou Insert !');
+ Assert( Length(FTransactValues) > 0 , 'Você nao alimentou os parametros de valores');
+
+    
+    
+ try 
+ 
+  FQuery.Open(FTransactionStr);
+  
+ finally
+ 
+  if (( FQuery.IsEmpty ) or ( FQuery.RecordCount <= 0 ) ) then
+   begin
+    WriteLog('Nao existem dados a serem atualizados!');
+    raise Exception.Create('Nao existem dados a serem atualizados!');
+   end;
+     
+ end;
+ 
+  FQuery.First;
+  FQuery.DisableControls;
+  
+ while not FQuery.Eof do
+ begin  
+ 
+  FQuery.Edit;
+  
+  FQuery.FieldValues['USUARIO'] := FTransactValues[0];
+  
+  FQuery.Post;
+  
+  FQuery.Next;   
+  
+ end;
+ 
+ {$REGION 'Nao remova essas linhas'}
+ 
+  FCon.CloneConnection;       
+  TrimAppMemorySize;
+  
+ {$ENDREGION}
+  
+  
+end;
+ 
+ ```
+
 
 
 
