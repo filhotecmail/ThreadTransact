@@ -12,4 +12,27 @@ begin
 end;
 ```
 
+## O MétodoAsync.Await
+Configure o Tempo de delay para inicio do procedimento.
+
+Para isso foi criado um método Async, que vai executar a thread.
+
+```Delphi
+
+ Async
+   .AWait(procedure
+     begin
+      with TTransactionData.Create do
+      begin
+        DatabaseUserName := 'sysdba';
+        DatabasePassword := '1234';
+        DatabasePort     := 3050;
+        Database         := 'c:\meubanco\banco.fdb';
+        Host             := '127.0.0.1';
+        Start;
+      end;
+     end,dwMilliseconds);
+     
+```
+
 
